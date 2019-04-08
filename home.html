@@ -7,9 +7,24 @@
         <title>Learn Vue JS</title>
     </head>
     <body>
-        <div id="app">
-            <h1>{{ message }}</h1>
-            <input type="text" name="" value="" v-model="message">
+        <div class="container card">
+            <h1>Vue JS</h1>
+            <div id="app" class="form-group">
+                <h1>{{ message }}</h1>
+                <input type="text" name="" value="" v-model="message" class="form-control">
+
+                <br>
+                <p>
+                      Visit: <a v-bind:href="url">{{ cleanUrl }}</a>
+                </p>
+                <input type="text" class="form-control" v-model="url">
+                <button type="button" name="button" class="btn btn-success" @click="humanizeUrl" style="margin-top: 10px">Humanize Me !!!!</button>
+
+                <br><br>
+                <h3>Count : {{ count }}</h3>
+                <button type="button" name="button" class="btn btn-success" @click="countUp">Count Up</button>
+                <button type="button" name="button" class="btn btn-danger" @:click="countDown">Count Down</button>
+            </div>
         </div>
     </body>
 
@@ -18,7 +33,21 @@
         var app = new Vue({
             el: "#app",
             data: {
-                message : "This is a message"
+                message : "This is a message",
+                count: 0,
+                url: "",
+                cleanUrl: ""
+            },
+            methods: {
+                countUp: function(){
+                    this.count += 1
+                },
+                countDown: function(){
+                    this.count -= 1
+                },
+                humanizeUrl: function(){
+                    this.cleanUrl = this.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+                }
             }
         })
     </script>
