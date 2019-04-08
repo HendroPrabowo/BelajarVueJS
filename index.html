@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <title>Learn Vue JS</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-text="message"></h1>
+            <p>{{ message2 }}</p>
+            <input type="text" v-model="message2"></input>
+            <h2 v-text="intro"></h2>
+            <h2 v-html="intro"></h2>
+            <h1 v-show="viewed">You have viewed this page</h1>
+            <h1 v-bind:title="title">{{ message }}</h1>
+            <img v-bind:src="url" v-bind:alt="title" v-bind:title="title">
+            <ul>
+                <li style="list-style-type:none" v-for="todo in todos">{{ todo.id}}) {{ todo.text }}</li>
+            </ul>
+            <div>
+                <button type="button" name="button" onclick="tampilkanWaktu()">Tampilkan Waktu</button>
+                <p id="waktu"></p>
+            </div>
+        </div>
+    </body>
+
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/myScript.js">
+    </script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js">
+    </script>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            console.log( "ready!" );
+        });
+    </script>
+
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue World',
+            message2: "This is message2",
+            intro: 'Welcome to the jungle <small>Its all about vue.js</small>',
+            viewed: false,
+            title: "You loaded page on "+ new Date(),
+            url: "https://vuejs.org/images/logo.png",
+            todos: [
+                { text: 'Learn vue', id: 1},
+                { text: 'Like the video', id: 2},
+                { text: 'Subscribe to DevMarketer', id: 3}
+            ]
+        }
+    })
+    </script>
+
+</html>
