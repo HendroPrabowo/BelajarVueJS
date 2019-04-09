@@ -8,7 +8,9 @@
     </head>
     <body>
         <div class="container card">
-            <h1>Vue JS</h1>
+            <div class="jumbotron bg-info">
+                <h1>Vue JS</h1>
+            </div>
             <div id="app" class="form-group">
                 <h1>{{ message }}</h1>
                 <input type="text" name="" value="" v-model="message" class="form-control">
@@ -23,7 +25,7 @@
                 <br><br>
                 <h3>Count : {{ count }}</h3>
                 <button type="button" name="button" class="btn btn-success" @click="countUp">Count Up</button>
-                <button type="button" name="button" class="btn btn-danger" @:click="countDown">Count Down</button>
+                <button type="button" name="button" class="btn btn-danger" @click="countDown">Count Down</button>
             </div>
         </div>
     </body>
